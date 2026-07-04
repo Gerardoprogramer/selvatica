@@ -6,6 +6,7 @@ import { Marquee } from "@/components/Marquee";
 import { Indigenous } from "@/components/Indigenous";
 import { Gallery } from "@/components/Gallery";
 import { Testimonials } from "@/components/Testimonials";
+import { CTA } from "@/components/CTA";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Indigenous />
         <Gallery />
         <Testimonials />
+        <CTA />
     </div>
   );
 }
