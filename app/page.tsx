@@ -4,6 +4,8 @@ import { Nav } from "@/components/Nav";
 import { Experiences } from "@/components/Experiences";
 import { Marquee } from "@/components/Marquee";
 import { Indigenous } from "@/components/Indigenous";
+import { Gallery } from "@/components/Gallery";
+import { Testimonials } from "@/components/Testimonials";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
         <Experiences />
         <Marquee />
         <Indigenous />
+        <Gallery />
+        <Testimonials />
     </div>
   );
 }
