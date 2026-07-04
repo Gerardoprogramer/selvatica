@@ -7,6 +7,7 @@ import { Indigenous } from "@/components/Indigenous";
 import { Gallery } from "@/components/Gallery";
 import { Testimonials } from "@/components/Testimonials";
 import { CTA } from "@/components/CTA";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Gallery />
         <Testimonials />
         <CTA />
+        <Footer />
     </div>
   );
 }
