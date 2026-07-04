@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { Nav } from "@/components/Nav";
 import { Experiences } from "@/components/Experiences";
 import { Marquee } from "@/components/Marquee";
+import { Indigenous } from "@/components/Indigenous";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <BookingBar />
         <Experiences />
         <Marquee />
+        <Indigenous />
     </div>
   );
 }
