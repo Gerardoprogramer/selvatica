@@ -13,7 +13,7 @@ export const Footer = () => {
                         </p>
                     </div>
                     <div className="md:col-span-3 flex flex-col gap-3">
-                        <span className="text-[10px] uppercase tracking-[0.25em] text-mist/40 font-semibold">
+                        <span className="text-[10px] uppercase tracking-[0.25em] text-mist/80 font-semibold">
                             Contacto
                         </span>
                         <a href="tel:+50689462689" className="text-lg hover:text-clay transition-colors">
@@ -29,7 +29,7 @@ export const Footer = () => {
                         </span>
                     </div>
                     <div className="md:col-span-2 flex flex-col gap-3">
-                        <span className="text-[10px] uppercase tracking-[0.25em] text-mist/40 font-semibold">
+                        <span className="text-[10px] uppercase tracking-[0.25em] text-mist/80 font-semibold">
                             Navegar
                         </span>
                         <a href="#experiencias" className="text-sm hover:text-clay transition-colors">
@@ -43,7 +43,7 @@ export const Footer = () => {
                         </a>
                     </div>
                     <div className="md:col-span-2 flex flex-col gap-3">
-                        <span className="text-[10px] uppercase tracking-[0.25em] text-mist/40 font-semibold">
+                        <span className="text-[10px] uppercase tracking-[0.25em] text-mist/80 font-semibold">
                             Redes
                         </span>
                         <a href="#" className="text-sm hover:text-clay transition-colors">Instagram</a>
@@ -52,10 +52,10 @@ export const Footer = () => {
                     </div>
                 </div>
                 <div className="pt-8 border-t border-mist/10 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-[10px] uppercase tracking-[0.25em] text-mist/30">
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-mist/70">
                         © 2026 Selvática Adventure Lodge · Pura Vida
                     </p>
-                    <div className="flex gap-8 text-[10px] uppercase tracking-[0.25em] text-mist/30">
+                    <div className="flex gap-8 text-[10px] uppercase tracking-[0.25em] text-mist/70">
                         <a href="#">Privacidad</a>
                         <a href="#">Términos</a>
                     </div>

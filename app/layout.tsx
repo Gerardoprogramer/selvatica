@@ -20,7 +20,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://selvatica.cr"),
+  metadataBase: new URL("https://selvatica.vercel.app"),
   title: {
     default: "Selvática — Hotel de Aventura en Costa Rica",
     template: "%s | Selvática",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Selvática — Hotel de Aventura en Costa Rica",
     description: "Donde la bruma toca el alma.",
-    url: "https://selvatica.cr",
+    url: "https://selvatica.vercel.app",
     siteName: "Selvática",
     images: [
       {
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://selvatica.cr",
+    canonical: "https://selvatica.vercel.app",
   },
 };
 

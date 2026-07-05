@@ -8,7 +8,12 @@ export const CTA = () => {
     return (
         <section className="relative py-32 md:py-44 px-6 overflow-hidden bg-jungle text-mist">
             <div className="absolute inset-0 opacity-30">
-                <Image src='/assets/hero-mist.jpg' alt="" height={500} width={1000} className="w-full h-full object-cover" loading="lazy" />
+                <Image src='/assets/hero-mist.jpg'
+                    alt="" height={500} width={1000}
+                    className="w-full h-full object-cover"
+                    priority
+                    sizes="100vw"
+                />
             </div>
             <motion.div
                 initial={{ opacity: 0, y: 40 }}

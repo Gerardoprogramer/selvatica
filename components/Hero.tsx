@@ -23,6 +23,9 @@ export const Hero = () => {
                     alt="Bosque nuboso de Costa Rica al amanecer"
                     width={1920}
                     height={1280}
+                    priority
+                    sizes="100vw"
+                    quality={70}
                     className="w-full h-[120%] object-cover"
                 />
                 <div className="absolute inset-0 bg-linear-to-b from-jungle/40 via-jungle/30 to-jungle/80" />

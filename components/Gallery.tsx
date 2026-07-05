@@ -47,6 +47,7 @@ export const Gallery = () => {
                             src={s.src}
                             alt={s.label}
                             loading="lazy"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
                             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                         />
                         <figcaption className="absolute bottom-4 left-4 right-4 text-mist text-xs font-medium uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity">
