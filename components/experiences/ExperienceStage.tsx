@@ -118,21 +118,28 @@ export const ExperienceStage = ({ experiences }: ExperienceStageProps) => {
                                 amount: 0.45,
                                 margin: "-20% 0px -20% 0px",
                             }}
-                            className="border-volcanic/15 flex min-h-[72svh] flex-col justify-center border-t py-16"
+                            className="relative flex min-h-[72svh] flex-col justify-center border-t border-volcanic/15 py-16"
                         >
                             <m.div
+                                aria-hidden="true"
+                                initial={false}
                                 animate={{
-                                    opacity: activeIndex === index ? 1 : 0.32,
+                                    scaleY: activeIndex === index ? 1 : 0,
                                 }}
                                 transition={{
-                                    duration: 0.35,
+                                    duration: 0.45,
                                     ease: EASE,
                                 }}
-                            >
-                                <div className="flex items-center justify-between">
-                                    <span className="text-volcanic/70 font-mono text-[10px]">{experience.number}</span>
+                                className="absolute -left-5 top-1/2 h-20 w-px origin-center -translate-y-1/2 bg-clay-ink"
+                            />
 
-                                    <span className="text-clay-ink max-w-50 text-right font-mono text-[9px] tracking-[0.18em] uppercase">
+                            <div>
+                                <div className="flex items-center justify-between">
+                                    <span className="font-mono text-[10px] text-volcanic/70">
+                                        {experience.number}
+                                    </span>
+
+                                    <span className="max-w-50 text-right font-mono text-[9px] uppercase tracking-[0.18em] text-clay-ink">
                                         {experience.eyebrow}
                                     </span>
                                 </div>
@@ -141,12 +148,14 @@ export const ExperienceStage = ({ experiences }: ExperienceStageProps) => {
                                     {experience.title}
                                 </h3>
 
-                                <p className="text-volcanic/65 mt-8 text-base leading-relaxed">{experience.description}</p>
+                                <p className="mt-8 text-base leading-relaxed text-volcanic/65">
+                                    {experience.description}
+                                </p>
 
-                                <p className="border-clay/40 text-volcanic/70 mt-6 border-l pl-5 text-sm leading-relaxed">
+                                <p className="mt-6 border-l border-clay/40 pl-5 text-sm leading-relaxed text-volcanic/70">
                                     {experience.detail}
                                 </p>
-                            </m.div>
+                            </div>
                         </m.article>
                     ))}
                 </div>
