@@ -8,7 +8,7 @@ export const Gallery = () => {
         <section id="galeria" aria-labelledby="gallery-title" className="mx-auto max-w-[1600px] px-6 py-28 md:px-10 md:py-44">
             <Reveal className="mb-20 grid gap-8 md:mb-28 md:grid-cols-12 md:items-end">
                 <div className="md:col-span-3">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-clay">03 / Archivo</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-clay-ink">03 / Archivo</p>
                 </div>
 
                 <div className="md:col-span-7">

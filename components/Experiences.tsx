@@ -8,7 +8,7 @@ export const Experiences = () => {
         <section id="experiencias" aria-labelledby="experiences-title" className="mx-auto max-w-[1600px] px-6 py-28 md:px-10 md:py-44">
             <Reveal className="mb-20 grid gap-8 md:mb-28 md:grid-cols-12 md:items-end">
                 <div className="md:col-span-3">
-                    <p className="text-clay font-mono text-[10px] tracking-[0.25em] uppercase">01 / Experiencias</p>
+                    <p className="text-clay-ink font-mono text-[10px] tracking-[0.25em] uppercase">01 / Experiencias</p>
                 </div>
 
                 <div className="md:col-span-7">

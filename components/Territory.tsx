@@ -28,7 +28,7 @@ export const Territory = () => {
             <div className="relative mx-auto max-w-[1600px] px-6 md:px-10">
                 <div className="grid gap-10 md:grid-cols-12 md:items-end">
                     <Reveal className="md:col-span-3">
-                        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-clay">02 / Territorio</p>
+                        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-clay-ink">02 / Territorio</p>
                     </Reveal>
 
                     <Reveal delay={0.06} className="md:col-span-7">
@@ -85,7 +85,7 @@ export const Territory = () => {
                             <div className="border-t border-mist/15">
                                 {territoryNotes.map((item) => (
                                     <div key={item.label} className="grid grid-cols-[6rem_1fr] gap-5 border-b border-mist/15 py-5">
-                                        <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-mist/30">{item.label}</span>
+                                        <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-mist/60">{item.label}</span>
                                         <span className="text-sm text-mist/70">{item.value}</span>
                                     </div>
                                 ))}
@@ -102,7 +102,7 @@ export const Territory = () => {
                             </div>
 
                             <figcaption className="mt-3 flex items-center justify-between gap-4">
-                                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-mist/35">Campo / 02</span>
+                                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-mist/60">Campo / 02</span>
                                 <span className="text-[10px] uppercase tracking-[0.18em] text-mist/60">Agua</span>
                             </figcaption>
                         </figure>

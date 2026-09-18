@@ -10,7 +10,7 @@ export const Rhythm = () => {
             <div className="mx-auto max-w-[1600px] px-6 pb-20 pt-28 md:px-10 md:pb-28 md:pt-40">
                 <Reveal className="grid gap-8 md:grid-cols-12 md:items-end">
                     <div className="md:col-span-3">
-                        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-clay">04 / El ritmo</p>
+                        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-clay-ink">04 / El ritmo</p>
                     </div>
 
                     <div className="md:col-span-7">
@@ -47,7 +47,7 @@ export const Rhythm = () => {
                                 <Reveal delay={0.08} className={`flex flex-col justify-between px-6 py-10 md:col-span-5 md:px-12 md:py-14 lg:px-16 lg:py-16 ${reversed ? "md:order-1" : ""}`}>
                                     <div>
                                         <div className="flex items-baseline justify-between gap-6 border-b border-mist/15 pb-5">
-                                            <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-clay">{moment.label}</span>
+                                            <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-clay-ink">{moment.label}</span>
                                             <span className="font-serif text-4xl tracking-[-0.035em] text-mist md:text-5xl">{moment.time}</span>
                                         </div>
 

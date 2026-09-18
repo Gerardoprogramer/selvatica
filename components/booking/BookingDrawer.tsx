@@ -167,7 +167,7 @@ export const BookingDrawer = ({ open, onClose }: BookingDrawerProps) => {
                             <div className="flex min-h-dvh flex-col">
                                 <header className="border-volcanic/15 flex items-center justify-between border-b px-6 py-5 md:px-8">
                                     <div>
-                                        <p className="text-volcanic/40 font-mono text-[9px] tracking-[0.24em] uppercase">
+                                        <p className="text-volcanic/70 font-mono text-[9px] tracking-[0.24em] uppercase">
                                             Selvática / Estancia
                                         </p>
 
@@ -228,9 +228,9 @@ export const BookingDrawer = ({ open, onClose }: BookingDrawerProps) => {
                                         >
                                             <label className="border-volcanic/15 grid gap-4 border-b py-6 md:grid-cols-[1fr_1.4fr] md:items-center">
                                                 <span className="flex items-center gap-3">
-                                                    <HiOutlineCalendarDays aria-hidden="true" className="text-clay size-4" />
+                                                    <HiOutlineCalendarDays aria-hidden="true" className="text-clay-ink size-4" />
 
-                                                    <span className="text-volcanic/45 font-mono text-[10px] tracking-[0.2em] uppercase">
+                                                    <span className="text-volcanic/70 font-mono text-[10px] tracking-[0.2em] uppercase">
                                                         Llegada
                                                     </span>
                                                 </span>
@@ -255,9 +255,9 @@ export const BookingDrawer = ({ open, onClose }: BookingDrawerProps) => {
 
                                             <label className="border-volcanic/15 grid gap-4 border-b py-6 md:grid-cols-[1fr_1.4fr] md:items-center">
                                                 <span className="flex items-center gap-3">
-                                                    <HiOutlineCalendarDays aria-hidden="true" className="text-clay size-4" />
+                                                    <HiOutlineCalendarDays aria-hidden="true" className="text-clay-ink size-4" />
 
-                                                    <span className="text-volcanic/45 font-mono text-[10px] tracking-[0.2em] uppercase">
+                                                    <span className="text-volcanic/70 font-mono text-[10px] tracking-[0.2em] uppercase">
                                                         Salida
                                                     </span>
                                                 </span>
@@ -274,9 +274,9 @@ export const BookingDrawer = ({ open, onClose }: BookingDrawerProps) => {
 
                                             <label className="border-volcanic/15 grid gap-4 border-b py-6 md:grid-cols-[1fr_1.4fr] md:items-center">
                                                 <span className="flex items-center gap-3">
-                                                    <HiOutlineUserGroup aria-hidden="true" className="text-clay size-4" />
+                                                    <HiOutlineUserGroup aria-hidden="true" className="text-clay-ink size-4" />
 
-                                                    <span className="text-volcanic/45 font-mono text-[10px] tracking-[0.2em] uppercase">
+                                                    <span className="text-volcanic/70 font-mono text-[10px] tracking-[0.2em] uppercase">
                                                         Huéspedes
                                                     </span>
                                                 </span>
@@ -317,7 +317,7 @@ export const BookingDrawer = ({ open, onClose }: BookingDrawerProps) => {
                                                     className="mt-8 grid grid-cols-2 gap-8"
                                                 >
                                                     <div>
-                                                        <p className="text-volcanic/35 font-mono text-[9px] tracking-[0.2em] uppercase">
+                                                        <p className="text-volcanic/70 font-mono text-[9px] tracking-[0.2em] uppercase">
                                                             Estancia
                                                         </p>
 
@@ -327,7 +327,7 @@ export const BookingDrawer = ({ open, onClose }: BookingDrawerProps) => {
                                                     </div>
 
                                                     <div>
-                                                        <p className="text-volcanic/35 font-mono text-[9px] tracking-[0.2em] uppercase">
+                                                        <p className="text-volcanic/70 font-mono text-[9px] tracking-[0.2em] uppercase">
                                                             Personas
                                                         </p>
 
@@ -354,7 +354,7 @@ export const BookingDrawer = ({ open, onClose }: BookingDrawerProps) => {
                                             />
                                         </button>
 
-                                        <p className="text-volcanic/40 mt-4 text-xs leading-relaxed">
+                                        <p className="text-volcanic/70 mt-4 text-xs leading-relaxed">
                                             La consulta se prepara con tus fechas y continúa por WhatsApp.
                                         </p>
                                     </footer>

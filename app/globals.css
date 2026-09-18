@@ -5,15 +5,15 @@
     --color-volcanic: #10241d;
     --color-jungle: #18392d;
     --color-moss: #71806a;
+
     --color-clay: #b66c49;
+
+    --color-clay-ink: #9d563b;
+
+    --color-clay-light: #c77d5a;
+
     --color-stone: #ddd9cf;
     --color-sand: #e9e4d9;
-
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
-    --font-serif: var(--font-instrument-serif);
-
-    --ease-editorial: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @layer base {
@@ -57,4 +57,9 @@
 
 .gallery-dialog::backdrop {
     background: transparent;
+}
+
+:where(a, button, input, select, textarea):focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
 }

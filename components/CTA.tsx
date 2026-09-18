@@ -9,11 +9,11 @@ export const CTA = () => {
             <div className="mx-auto max-w-[1600px] px-6 py-28 md:px-10 md:py-44">
                 <div className="grid gap-y-16 md:grid-cols-12 md:gap-x-10">
                     <Reveal className="md:col-span-3">
-                        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-clay">05 / Estancia</p>
+                        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-clay-ink">05 / Estancia</p>
                     </Reveal>
 
                     <Reveal delay={0.06} className="md:col-span-3 md:col-start-10">
-                        <p className="max-w-xs text-sm leading-relaxed text-volcanic/55">
+                        <p className="max-w-xs text-sm leading-relaxed text-volcanic/70">
                             Una propuesta conceptual de hospitalidad donde paisaje, movimiento y descanso forman parte de la misma experiencia.
                         </p>
                     </Reveal>
@@ -45,8 +45,8 @@ export const CTA = () => {
                             </div>
 
                             <figcaption className="mt-4 flex items-center justify-between border-t border-volcanic/15 pt-3">
-                                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-volcanic/35">Última luz</span>
-                                <span className="text-[10px] uppercase tracking-[0.18em] text-volcanic/45">Arenal · Costa Rica</span>
+                                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-volcanic/70">Última luz</span>
+                                <span className="text-[10px] uppercase tracking-[0.18em] text-volcanic/70">Arenal · Costa Rica</span>
                             </figcaption>
                         </figure>
                     </Reveal>

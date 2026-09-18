@@ -67,7 +67,7 @@ export const BookingPanel = () => {
                 className="mx-auto grid max-w-7xl md:grid-cols-[1.2fr_1fr_1fr_1fr_auto]"
             >
                 <div className="border-volcanic/15 border-b px-6 py-6 md:border-r md:border-b-0 md:px-8">
-                    <p id="booking-title" className="text-volcanic/45 font-mono text-[9px] tracking-[0.25em] uppercase">
+                    <p id="booking-title" className="text-volcanic/70 font-mono text-[9px] tracking-[0.25em] uppercase">
                         Consulta
                     </p>
 
@@ -75,7 +75,7 @@ export const BookingPanel = () => {
                 </div>
 
                 <label className="border-volcanic/15 border-b px-6 py-5 md:border-r md:border-b-0">
-                    <span className="text-volcanic/45 block font-mono text-[9px] tracking-[0.2em] uppercase">Llegada</span>
+                    <span className="text-volcanic/70 block font-mono text-[9px] tracking-[0.2em] uppercase">Llegada</span>
 
                     <input
                         required
@@ -96,7 +96,7 @@ export const BookingPanel = () => {
                 </label>
 
                 <label className="border-volcanic/15 border-b px-6 py-5 md:border-r md:border-b-0">
-                    <span className="text-volcanic/45 block font-mono text-[9px] tracking-[0.2em] uppercase">Salida</span>
+                    <span className="text-volcanic/70 block font-mono text-[9px] tracking-[0.2em] uppercase">Salida</span>
 
                     <input
                         required
@@ -109,7 +109,7 @@ export const BookingPanel = () => {
                 </label>
 
                 <label className="border-volcanic/15 border-b px-6 py-5 md:border-r md:border-b-0">
-                    <span className="text-volcanic/45 block font-mono text-[9px] tracking-[0.2em] uppercase">Huéspedes</span>
+                    <span className="text-volcanic/70 block font-mono text-[9px] tracking-[0.2em] uppercase">Huéspedes</span>
 
                     <select
                         value={guests}

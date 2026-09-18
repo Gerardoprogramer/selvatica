@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
     return [
         {
-            url: "https://selvatica.vercel.app",
+            url: "https://selvatica.gerardomartinez.dev",
             lastModified: new Date(),
             changeFrequency: "monthly",
             priority: 1,

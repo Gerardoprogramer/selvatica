@@ -23,7 +23,7 @@ export const ExperienceStage = ({ experiences }: ExperienceStageProps) => {
                 {experiences.map((experience, index) => (
                     <article key={experience.number} className="border-volcanic/15 border-t pt-5">
                         <div className="bg-stone relative aspect-4/5 overflow-hidden">
-                            <Image fill src={experience.image} alt={experience.alt} sizes="100vw" className="object-cover" />
+                            <Image fill src={experience.image} alt={experience.alt} sizes="(max-width: 767px) calc(100vw - 48px), 58vw" className="object-cover" />
 
                             <div
                                 aria-hidden="true"
@@ -32,16 +32,16 @@ export const ExperienceStage = ({ experiences }: ExperienceStageProps) => {
                         </div>
 
                         <div className="mt-5 grid grid-cols-[2.5rem_1fr] gap-3">
-                            <span className="text-volcanic/40 pt-1 font-mono text-[9px]">{experience.number}</span>
+                            <span className="text-volcanic/70 pt-1 font-mono text-[9px]">{experience.number}</span>
 
                             <div>
-                                <p className="text-clay font-mono text-[9px] tracking-[0.2em] uppercase">{experience.eyebrow}</p>
+                                <p className="text-clay-ink font-mono text-[9px] tracking-[0.2em] uppercase">{experience.eyebrow}</p>
 
                                 <h3 className="mt-3 font-serif text-4xl leading-[0.95] tracking-tight">{experience.title}</h3>
 
                                 <p className="text-volcanic/65 mt-5 text-[15px] leading-relaxed">{experience.description}</p>
 
-                                <p className="border-clay/40 text-volcanic/45 mt-4 border-l pl-4 text-sm leading-relaxed">
+                                <p className="border-clay/40 text-volcanic/70 mt-4 border-l pl-4 text-sm leading-relaxed">
                                     {experience.detail}
                                 </p>
                             </div>
@@ -130,9 +130,9 @@ export const ExperienceStage = ({ experiences }: ExperienceStageProps) => {
                                 }}
                             >
                                 <div className="flex items-center justify-between">
-                                    <span className="text-volcanic/40 font-mono text-[10px]">{experience.number}</span>
+                                    <span className="text-volcanic/70 font-mono text-[10px]">{experience.number}</span>
 
-                                    <span className="text-clay max-w-50 text-right font-mono text-[9px] tracking-[0.18em] uppercase">
+                                    <span className="text-clay-ink max-w-50 text-right font-mono text-[9px] tracking-[0.18em] uppercase">
                                         {experience.eyebrow}
                                     </span>
                                 </div>
@@ -143,7 +143,7 @@ export const ExperienceStage = ({ experiences }: ExperienceStageProps) => {
 
                                 <p className="text-volcanic/65 mt-8 text-base leading-relaxed">{experience.description}</p>
 
-                                <p className="border-clay/40 text-volcanic/45 mt-6 border-l pl-5 text-sm leading-relaxed">
+                                <p className="border-clay/40 text-volcanic/70 mt-6 border-l pl-5 text-sm leading-relaxed">
                                     {experience.detail}
                                 </p>
                             </m.div>

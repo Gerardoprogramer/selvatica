@@ -23,7 +23,7 @@ const instrumentSerif = Instrument_Serif({
     style: ["normal", "italic"],
 });
 
-const siteUrl = "https://selvatica.vercel.app";
+const siteUrl = "https://selvatica.gerardomartinez.dev";
 
 export const metadata: Metadata = {
     metadataBase: new URL(siteUrl),

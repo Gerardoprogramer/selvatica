@@ -135,14 +135,14 @@ export const GalleryStage = ({ items }: GalleryStageProps) => {
                             </div>
 
                             <figcaption className="mt-4 grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-3 border-t border-volcanic/15 pt-3">
-                                <span className="font-mono text-[9px] text-volcanic/35">{String(index + 1).padStart(2, "0")}</span>
+                                <span className="font-mono text-[9px] text-volcanic/70">{String(index + 1).padStart(2, "0")}</span>
 
                                 <div>
                                     <p className="font-serif text-2xl">{item.title}</p>
-                                    <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-volcanic/40">{item.category}</p>
+                                    <p className="mt-1 text-[10px] uppercase tracking-[0.18em] text-volcanic/70">{item.category}</p>
                                 </div>
 
-                                <HiOutlineArrowRight aria-hidden="true" className="size-4 text-volcanic/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-clay" />
+                                <HiOutlineArrowRight aria-hidden="true" className="size-4 text-volcanic/30 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-clay-ink" />
                             </figcaption>
                         </button>
                     </m.figure>
@@ -199,11 +199,11 @@ export const GalleryStage = ({ items }: GalleryStageProps) => {
                                 <div className="mx-auto grid max-w-[1600px] gap-6 md:grid-cols-[1fr_auto] md:items-end">
                                     <div className="grid gap-2 md:max-w-xl">
                                         <div className="flex items-center gap-3">
-                                            <span className="font-mono text-[9px] text-mist/35">
+                                            <span className="font-mono text-[9px] text-mist/60">
                                                 {String(selectedIndex + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}
                                             </span>
 
-                                            <span className="text-[10px] uppercase tracking-[0.18em] text-clay">{selected.category}</span>
+                                            <span className="text-[10px] uppercase tracking-[0.18em] text-clay-ink">{selected.category}</span>
                                         </div>
 
                                         <p className="text-sm leading-relaxed text-mist/55">{selected.description}</p>

@@ -206,7 +206,7 @@ export const Nav = () => {
                                     }}
                                     className="border-mist/15 grid grid-cols-[3rem_1fr] items-baseline border-t py-6"
                                 >
-                                    <span className="text-mist/35 font-mono text-[9px]">{String(index + 1).padStart(2, "0")}</span>
+                                    <span className="text-mist/60 font-mono text-[9px]">{String(index + 1).padStart(2, "0")}</span>
 
                                     <span className="font-serif text-4xl italic">{link.label}</span>
                                 </m.a>
