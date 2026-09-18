@@ -1,21 +1,10 @@
 "use client";
 
-import {
-    FormEvent,
-    useEffect,
-    useMemo,
-    useRef,
-    useState,
-} from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 
 import { AnimatePresence, m } from "motion/react";
 
-import {
-    HiOutlineArrowUpRight,
-    HiOutlineCalendarDays,
-    HiOutlineUserGroup,
-    HiOutlineXMark,
-} from "react-icons/hi2";
+import { HiOutlineArrowUpRight, HiOutlineCalendarDays, HiOutlineUserGroup, HiOutlineXMark } from "react-icons/hi2";
 
 import { WHATSAPP_URL } from "@/lib/constants/WHATSAPP_URL";
 
@@ -37,25 +26,16 @@ const formatDate = (value: string) => {
     }).format(new Date(`${value}T00:00:00Z`));
 };
 
-const getNights = (
-    arrival: string,
-    departure: string,
-) => {
+const getNights = (arrival: string, departure: string) => {
     if (!arrival || !departure) return 0;
 
     const start = Date.parse(`${arrival}T00:00:00Z`);
     const end = Date.parse(`${departure}T00:00:00Z`);
 
-    return Math.max(
-        0,
-        Math.round((end - start) / 86_400_000),
-    );
+    return Math.max(0, Math.round((end - start) / 86_400_000));
 };
 
-export const BookingDrawer = ({
-    open,
-    onClose,
-}: BookingDrawerProps) => {
+export const BookingDrawer = ({ open, onClose }: BookingDrawerProps) => {
     const dialogRef = useRef<HTMLDialogElement>(null);
 
     const [visible, setVisible] = useState(false);
@@ -68,13 +48,7 @@ export const BookingDrawer = ({
     useEffect(() => {
         const now = new Date();
 
-        setToday(
-            [
-                now.getFullYear(),
-                String(now.getMonth() + 1).padStart(2, "0"),
-                String(now.getDate()).padStart(2, "0"),
-            ].join("-"),
-        );
+        setToday([now.getFullYear(), String(now.getMonth() + 1).padStart(2, "0"), String(now.getDate()).padStart(2, "0")].join("-"));
     }, []);
 
     useEffect(() => {
@@ -105,10 +79,7 @@ export const BookingDrawer = ({
         };
     }, []);
 
-    const nights = useMemo(
-        () => getNights(arrival, departure),
-        [arrival, departure],
-    );
+    const nights = useMemo(() => getNights(arrival, departure), [arrival, departure]);
 
     const finishClose = () => {
         const dialog = dialogRef.current;
@@ -125,9 +96,7 @@ export const BookingDrawer = ({
         onClose();
     };
 
-    const handleSubmit = (
-        event: FormEvent<HTMLFormElement>,
-    ) => {
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         if (!arrival || !departure || nights <= 0) {
@@ -147,14 +116,8 @@ export const BookingDrawer = ({
 
         url.searchParams.set("text", message);
 
-        window.open(
-            url.toString(),
-            "_blank",
-            "noopener,noreferrer",
-        );
+        window.open(url.toString(), "_blank", "noopener,noreferrer");
     };
-
-
 
     return (
         <dialog
@@ -166,15 +129,9 @@ export const BookingDrawer = ({
             }}
             className="booking-dialog fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none overflow-hidden bg-transparent p-0"
         >
-            <AnimatePresence
-                mode="wait"
-                onExitComplete={finishClose}
-            >
+            <AnimatePresence mode="wait" onExitComplete={finishClose}>
                 {visible && (
-                    <m.div
-                        key="booking-layer"
-                        className="fixed inset-0 flex justify-end"
-                    >
+                    <m.div key="booking-layer" className="fixed inset-0 flex justify-end">
                         {/* Overlay */}
                         <m.button
                             type="button"
@@ -187,7 +144,7 @@ export const BookingDrawer = ({
                                 duration: 0.35,
                                 ease: EASE,
                             }}
-                            className="absolute inset-0 cursor-default bg-volcanic/75 backdrop-blur-sm"
+                            className="bg-volcanic/75 absolute inset-0 cursor-default backdrop-blur-sm"
                         />
 
                         {/* Drawer */}
@@ -205,22 +162,16 @@ export const BookingDrawer = ({
                                 duration: 0.55,
                                 ease: EASE,
                             }}
-                            className="relative z-10 h-dvh w-full bg-mist text-volcanic sm:max-w-xl
-              "
+                            className="bg-mist text-volcanic relative z-10 h-dvh w-full sm:max-w-xl"
                         >
                             <div className="flex min-h-dvh flex-col">
-                                <header
-                                    className="flex items-center justify-between border-b border-volcanic/15 px-6 py-5 md:px-8"
-                                >
+                                <header className="border-volcanic/15 flex items-center justify-between border-b px-6 py-5 md:px-8">
                                     <div>
-                                        <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-volcanic/40">
+                                        <p className="text-volcanic/40 font-mono text-[9px] tracking-[0.24em] uppercase">
                                             Selvática / Estancia
                                         </p>
 
-                                        <h2
-                                            id="booking-title"
-                                            className="mt-1 font-serif text-2xl italic"
-                                        >
+                                        <h2 id="booking-title" className="mt-1 font-serif text-2xl italic">
                                             Preparar visita
                                         </h2>
                                     </div>
@@ -229,19 +180,13 @@ export const BookingDrawer = ({
                                         type="button"
                                         onClick={requestClose}
                                         aria-label="Cerrar reserva"
-                                        className="grid size-11 place-items-center border border-volcanic/15 transition-colors hover:bg-volcanic hover:text-mist"
+                                        className="border-volcanic/15 hover:bg-volcanic hover:text-mist grid size-11 place-items-center border transition-colors"
                                     >
-                                        <HiOutlineXMark
-                                            aria-hidden="true"
-                                            className="size-5"
-                                        />
+                                        <HiOutlineXMark aria-hidden="true" className="size-5" />
                                     </button>
                                 </header>
 
-                                <form
-                                    onSubmit={handleSubmit}
-                                    className="flex flex-1 flex-col"
-                                >
+                                <form onSubmit={handleSubmit} className="flex flex-1 flex-col">
                                     <div className="flex-1 px-6 py-10 md:px-8">
                                         <m.div
                                             initial={{
@@ -258,9 +203,7 @@ export const BookingDrawer = ({
                                                 ease: EASE,
                                             }}
                                         >
-                                            <p
-                                                className="max-w-sm font-serif text-4xl leading-[0.95] tracking-tight md:text-5xl"
-                                            >
+                                            <p className="max-w-sm font-serif text-4xl leading-[0.95] tracking-tight md:text-5xl">
                                                 Elegí las fechas.
                                                 <br />
                                                 <em>Nosotros seguimos.</em>
@@ -281,16 +224,13 @@ export const BookingDrawer = ({
                                                 duration: 0.55,
                                                 ease: EASE,
                                             }}
-                                            className="mt-12 border-t border-volcanic/15"
+                                            className="border-volcanic/15 mt-12 border-t"
                                         >
-                                            <label className="grid gap-4 border-b border-volcanic/15 py-6 md:grid-cols-[1fr_1.4fr] md:items-center">
+                                            <label className="border-volcanic/15 grid gap-4 border-b py-6 md:grid-cols-[1fr_1.4fr] md:items-center">
                                                 <span className="flex items-center gap-3">
-                                                    <HiOutlineCalendarDays
-                                                        aria-hidden="true"
-                                                        className="size-4 text-clay"
-                                                    />
+                                                    <HiOutlineCalendarDays aria-hidden="true" className="text-clay size-4" />
 
-                                                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-volcanic/45">
+                                                    <span className="text-volcanic/45 font-mono text-[10px] tracking-[0.2em] uppercase">
                                                         Llegada
                                                     </span>
                                                 </span>
@@ -301,15 +241,11 @@ export const BookingDrawer = ({
                                                     min={today || undefined}
                                                     value={arrival}
                                                     onChange={(event) => {
-                                                        const nextArrival =
-                                                            event.target.value;
+                                                        const nextArrival = event.target.value;
 
                                                         setArrival(nextArrival);
 
-                                                        if (
-                                                            departure &&
-                                                            departure <= nextArrival
-                                                        ) {
+                                                        if (departure && departure <= nextArrival) {
                                                             setDeparture("");
                                                         }
                                                     }}
@@ -317,14 +253,11 @@ export const BookingDrawer = ({
                                                 />
                                             </label>
 
-                                            <label className="grid gap-4 border-b border-volcanic/15 py-6 md:grid-cols-[1fr_1.4fr] md:items-center">
+                                            <label className="border-volcanic/15 grid gap-4 border-b py-6 md:grid-cols-[1fr_1.4fr] md:items-center">
                                                 <span className="flex items-center gap-3">
-                                                    <HiOutlineCalendarDays
-                                                        aria-hidden="true"
-                                                        className="size-4 text-clay"
-                                                    />
+                                                    <HiOutlineCalendarDays aria-hidden="true" className="text-clay size-4" />
 
-                                                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-volcanic/45">
+                                                    <span className="text-volcanic/45 font-mono text-[10px] tracking-[0.2em] uppercase">
                                                         Salida
                                                     </span>
                                                 </span>
@@ -332,52 +265,32 @@ export const BookingDrawer = ({
                                                 <input
                                                     required
                                                     type="date"
-                                                    min={
-                                                        arrival ||
-                                                        today ||
-                                                        undefined
-                                                    }
+                                                    min={arrival || today || undefined}
                                                     value={departure}
-                                                    onChange={(event) =>
-                                                        setDeparture(
-                                                            event.target.value,
-                                                        )
-                                                    }
+                                                    onChange={(event) => setDeparture(event.target.value)}
                                                     className="w-full bg-transparent font-serif text-xl outline-none md:text-right"
                                                 />
                                             </label>
 
-                                            <label className="grid gap-4 border-b border-volcanic/15 py-6 md:grid-cols-[1fr_1.4fr] md:items-center">
+                                            <label className="border-volcanic/15 grid gap-4 border-b py-6 md:grid-cols-[1fr_1.4fr] md:items-center">
                                                 <span className="flex items-center gap-3">
-                                                    <HiOutlineUserGroup
-                                                        aria-hidden="true"
-                                                        className="size-4 text-clay"
-                                                    />
+                                                    <HiOutlineUserGroup aria-hidden="true" className="text-clay size-4" />
 
-                                                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-volcanic/45">
+                                                    <span className="text-volcanic/45 font-mono text-[10px] tracking-[0.2em] uppercase">
                                                         Huéspedes
                                                     </span>
                                                 </span>
 
                                                 <select
                                                     value={guests}
-                                                    onChange={(event) =>
-                                                        setGuests(
-                                                            event.target.value,
-                                                        )
-                                                    }
+                                                    onChange={(event) => setGuests(event.target.value)}
                                                     className="w-full bg-transparent font-serif text-xl outline-none md:text-right"
                                                 >
-                                                    {[1, 2, 3, 4, 5, 6].map(
-                                                        (value) => (
-                                                            <option
-                                                                key={value}
-                                                                value={value}
-                                                            >
-                                                                {value}
-                                                            </option>
-                                                        ),
-                                                    )}
+                                                    {[1, 2, 3, 4, 5, 6].map((value) => (
+                                                        <option key={value} value={value}>
+                                                            {value}
+                                                        </option>
+                                                    ))}
                                                 </select>
                                             </label>
                                         </m.div>
@@ -404,57 +317,45 @@ export const BookingDrawer = ({
                                                     className="mt-8 grid grid-cols-2 gap-8"
                                                 >
                                                     <div>
-                                                        <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-volcanic/35">
+                                                        <p className="text-volcanic/35 font-mono text-[9px] tracking-[0.2em] uppercase">
                                                             Estancia
                                                         </p>
 
                                                         <p className="mt-2 font-serif text-2xl">
-                                                            {nights}{" "}
-                                                            {nights === 1
-                                                                ? "noche"
-                                                                : "noches"}
+                                                            {nights} {nights === 1 ? "noche" : "noches"}
                                                         </p>
                                                     </div>
 
                                                     <div>
-                                                        <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-volcanic/35">
+                                                        <p className="text-volcanic/35 font-mono text-[9px] tracking-[0.2em] uppercase">
                                                             Personas
                                                         </p>
 
-                                                        <p className="mt-2 font-serif text-2xl">
-                                                            {guests}
-                                                        </p>
+                                                        <p className="mt-2 font-serif text-2xl">{guests}</p>
                                                     </div>
                                                 </m.div>
                                             )}
                                         </AnimatePresence>
                                     </div>
 
-                                    <footer
-                                        className="border-t border-volcanic/15 p-6 md:p-8"
-                                    >
+                                    <footer className="border-volcanic/15 border-t p-6 md:p-8">
                                         <button
                                             type="submit"
-                                            disabled={
-                                                !arrival ||
-                                                !departure ||
-                                                nights <= 0
-                                            }
-                                            className="group flex w-full items-center justify-between bg-volcanic px-6 py-5 text-mist transition-colors hover:bg-clay disabled:cursor-not-allowed disabled:opacity-35"
+                                            disabled={!arrival || !departure || nights <= 0}
+                                            className="group bg-volcanic text-mist hover:bg-clay flex w-full items-center justify-between px-6 py-5 transition-colors disabled:cursor-not-allowed disabled:opacity-35"
                                         >
-                                            <span className="text-[11px] font-medium uppercase tracking-[0.18em]">
+                                            <span className="text-[11px] font-medium tracking-[0.18em] uppercase">
                                                 Consultar disponibilidad
                                             </span>
 
                                             <HiOutlineArrowUpRight
                                                 aria-hidden="true"
-                                                className="size-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                                                className="size-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                                             />
                                         </button>
 
-                                        <p className="mt-4 text-xs leading-relaxed text-volcanic/40">
-                                            La consulta se prepara con tus
-                                            fechas y continúa por WhatsApp.
+                                        <p className="text-volcanic/40 mt-4 text-xs leading-relaxed">
+                                            La consulta se prepara con tus fechas y continúa por WhatsApp.
                                         </p>
                                     </footer>
                                 </form>

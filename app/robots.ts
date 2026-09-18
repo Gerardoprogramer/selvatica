@@ -6,7 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: "*",
             allow: "/",
         },
-        sitemap:
-            "https://selvatica.vercel.app/sitemap.xml",
+        sitemap: "https://selvatica.vercel.app/sitemap.xml",
     };
 }

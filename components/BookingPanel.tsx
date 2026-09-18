@@ -27,11 +27,9 @@ export const BookingPanel = () => {
     useEffect(() => {
         const now = new Date();
 
-        const localDate = [
-            now.getFullYear(),
-            String(now.getMonth() + 1).padStart(2, "0"),
-            String(now.getDate()).padStart(2, "0"),
-        ].join("-");
+        const localDate = [now.getFullYear(), String(now.getMonth() + 1).padStart(2, "0"), String(now.getDate()).padStart(2, "0")].join(
+            "-",
+        );
 
         setToday(localDate);
     }, []);
@@ -55,19 +53,11 @@ export const BookingPanel = () => {
 
         url.searchParams.set("text", message);
 
-        window.open(
-            url.toString(),
-            "_blank",
-            "noopener,noreferrer",
-        );
+        window.open(url.toString(), "_blank", "noopener,noreferrer");
     };
 
     return (
-        <section
-            id="reservar"
-            aria-labelledby="booking-title"
-            className="border-b border-volcanic/15 bg-mist"
-        >
+        <section id="reservar" aria-labelledby="booking-title" className="border-volcanic/15 bg-mist border-b">
             <m.form
                 onSubmit={handleSubmit}
                 initial={{ opacity: 0 }}
@@ -76,27 +66,16 @@ export const BookingPanel = () => {
                 transition={{ duration: 0.7 }}
                 className="mx-auto grid max-w-7xl md:grid-cols-[1.2fr_1fr_1fr_1fr_auto]"
             >
-                <div
-                    className="border-b border-volcanic/15 px-6 py-6 md:border-b-0 md:border-r md:px-8"
-                >
-                    <p
-                        id="booking-title"
-                        className="font-mono text-[9px] uppercase tracking-[0.25em] text-volcanic/45"
-                    >
+                <div className="border-volcanic/15 border-b px-6 py-6 md:border-r md:border-b-0 md:px-8">
+                    <p id="booking-title" className="text-volcanic/45 font-mono text-[9px] tracking-[0.25em] uppercase">
                         Consulta
                     </p>
 
-                    <p className="mt-2 font-serif text-2xl italic">
-                        Prepará tu estancia
-                    </p>
+                    <p className="mt-2 font-serif text-2xl italic">Prepará tu estancia</p>
                 </div>
 
-                <label
-                    className="border-b border-volcanic/15 px-6 py-5 md:border-b-0 md:border-r"
-                >
-                    <span className="block font-mono text-[9px] uppercase tracking-[0.2em] text-volcanic/45">
-                        Llegada
-                    </span>
+                <label className="border-volcanic/15 border-b px-6 py-5 md:border-r md:border-b-0">
+                    <span className="text-volcanic/45 block font-mono text-[9px] tracking-[0.2em] uppercase">Llegada</span>
 
                     <input
                         required
@@ -108,10 +87,7 @@ export const BookingPanel = () => {
 
                             setArrival(nextArrival);
 
-                            if (
-                                departure &&
-                                departure <= nextArrival
-                            ) {
+                            if (departure && departure <= nextArrival) {
                                 setDeparture("");
                             }
                         }}
@@ -119,37 +95,25 @@ export const BookingPanel = () => {
                     />
                 </label>
 
-                <label
-                    className="border-b border-volcanic/15 px-6 py-5 md:border-b-0 md:border-r"
-                >
-                    <span className="block font-mono text-[9px] uppercase tracking-[0.2em] text-volcanic/45">
-                        Salida
-                    </span>
+                <label className="border-volcanic/15 border-b px-6 py-5 md:border-r md:border-b-0">
+                    <span className="text-volcanic/45 block font-mono text-[9px] tracking-[0.2em] uppercase">Salida</span>
 
                     <input
                         required
                         type="date"
                         min={arrival || today || undefined}
                         value={departure}
-                        onChange={(event) =>
-                            setDeparture(event.target.value)
-                        }
+                        onChange={(event) => setDeparture(event.target.value)}
                         className="mt-2 w-full bg-transparent font-serif text-xl outline-none"
                     />
                 </label>
 
-                <label
-                    className="border-b border-volcanic/15 px-6 py-5 md:border-b-0 md:border-r"
-                >
-                    <span className="block font-mono text-[9px] uppercase tracking-[0.2em] text-volcanic/45">
-                        Huéspedes
-                    </span>
+                <label className="border-volcanic/15 border-b px-6 py-5 md:border-r md:border-b-0">
+                    <span className="text-volcanic/45 block font-mono text-[9px] tracking-[0.2em] uppercase">Huéspedes</span>
 
                     <select
                         value={guests}
-                        onChange={(event) =>
-                            setGuests(event.target.value)
-                        }
+                        onChange={(event) => setGuests(event.target.value)}
                         className="mt-2 w-full bg-transparent font-serif text-xl outline-none"
                     >
                         {[1, 2, 3, 4, 5, 6].map((value) => (
@@ -162,11 +126,9 @@ export const BookingPanel = () => {
 
                 <button
                     type="submit"
-                    className="group flex min-h-20 items-center justify-between gap-8 bg-volcanic px-7 text-left text-mist transition-colors hover:bg-clay md:min-h-full"
+                    className="group bg-volcanic text-mist hover:bg-clay flex min-h-20 items-center justify-between gap-8 px-7 text-left transition-colors md:min-h-full"
                 >
-                    <span className="text-[11px] font-medium uppercase tracking-[0.18em]">
-                        Consultar
-                    </span>
+                    <span className="text-[11px] font-medium tracking-[0.18em] uppercase">Consultar</span>
 
                     <HiOutlineArrowRight
                         aria-hidden="true"

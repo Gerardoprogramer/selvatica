@@ -1,56 +1,56 @@
 @import "tailwindcss";
 
 @theme {
-  --color-mist: #f2f0e9;
-  --color-volcanic: #10241d;
-  --color-jungle: #18392d;
-  --color-moss: #71806a;
-  --color-clay: #b66c49;
-  --color-stone: #ddd9cf;
-  --color-sand: #e9e4d9;
+    --color-mist: #f2f0e9;
+    --color-volcanic: #10241d;
+    --color-jungle: #18392d;
+    --color-moss: #71806a;
+    --color-clay: #b66c49;
+    --color-stone: #ddd9cf;
+    --color-sand: #e9e4d9;
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-instrument-serif);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+    --font-serif: var(--font-instrument-serif);
 
-  --ease-editorial: cubic-bezier(0.19, 1, 0.22, 1);
+    --ease-editorial: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
-    scrollbar-gutter: stable;
-    background: var(--color-mist);
-  }
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 6rem;
+        scrollbar-gutter: stable;
+        background: var(--color-mist);
+    }
 
-  body {
-    margin: 0;
-    background: var(--color-mist);
-    color: var(--color-volcanic);
-    font-family: var(--font-geist-sans);
-  }
+    body {
+        margin: 0;
+        background: var(--color-mist);
+        color: var(--color-volcanic);
+        font-family: var(--font-geist-sans);
+    }
 
-  button,
-  a,
-  input,
-  select {
-    outline-color: var(--color-clay);
-  }
+    button,
+    a,
+    input,
+    select {
+        outline-color: var(--color-clay);
+    }
 
-  ::selection {
-    background: var(--color-clay);
-    color: var(--color-mist);
-  }
+    ::selection {
+        background: var(--color-clay);
+        color: var(--color-mist);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+    html {
+        scroll-behavior: auto;
+    }
 }
 
 .booking-dialog::backdrop {
-  background: transparent;
-  backdrop-filter: none;
+    background: transparent;
+    backdrop-filter: none;
 }

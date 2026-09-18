@@ -9,24 +9,14 @@ interface BookingTriggerProps {
     label?: string;
 }
 
-export const BookingTrigger = ({
-    className = "",
-    label = "Consultar estancia",
-}: BookingTriggerProps) => {
+export const BookingTrigger = ({ className = "", label = "Consultar estancia" }: BookingTriggerProps) => {
     const { openBooking } = useBooking();
 
     return (
-        <button
-            type="button"
-            onClick={openBooking}
-            className={className}
-        >
+        <button type="button" onClick={openBooking} className={className}>
             <span>{label}</span>
 
-            <HiOutlineCalendarDays
-                aria-hidden="true"
-                className="size-4"
-            />
+            <HiOutlineCalendarDays aria-hidden="true" className="size-4" />
         </button>
     );
 };

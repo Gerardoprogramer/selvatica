@@ -9,32 +9,29 @@ import { Rhythm } from "@/components/Rhythm";
 import { Territory } from "@/components/Territory";
 
 export default function Home() {
-  return (
-    <BookingProvider>
-      <a
-        href="#contenido"
-        className="sr-only fixed left-4 top-4 z-100 bg-mist px-4 py-3 text-sm text-volcanic focus:not-sr-only"
-      >
-        Saltar al contenido
-      </a>
+    return (
+        <BookingProvider>
+            <a href="#contenido" className="bg-mist text-volcanic sr-only fixed top-4 left-4 z-100 px-4 py-3 text-sm focus:not-sr-only">
+                Saltar al contenido
+            </a>
 
-      <Nav />
+            <Nav />
 
-      <main id="contenido">
-        <Hero />
+            <main id="contenido">
+                <Hero />
 
-        <Experiences />
+                <Experiences />
 
-        <Territory />
+                <Territory />
 
-        <Gallery />
+                <Gallery />
 
-        <Rhythm />
+                <Rhythm />
 
-        <CTA />
-      </main>
+                <CTA />
+            </main>
 
-      <Footer />
-    </BookingProvider>
-  );
+            <Footer />
+        </BookingProvider>
+    );
 }
