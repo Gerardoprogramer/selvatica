@@ -20,6 +20,7 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
+    scrollbar-gutter: stable;
     background: var(--color-mist);
   }
 
@@ -47,4 +48,9 @@
   html {
     scroll-behavior: auto;
   }
+}
+
+.booking-dialog::backdrop {
+  background: transparent;
+  backdrop-filter: none;
 }

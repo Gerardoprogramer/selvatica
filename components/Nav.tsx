@@ -1,155 +1,324 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
-const navItems = [
-    { label: "Experiencias", href: "#experiencias" },
-    { label: "Origen", href: "#origen" },
-    { label: "Galería", href: "#galeria" },
-    { label: "Contacto", href: "#contacto" },
+import {
+    AnimatePresence,
+    m,
+} from "motion/react";
+
+import {
+    HiOutlineBars2,
+    HiOutlineCalendarDays,
+    HiOutlineXMark,
+} from "react-icons/hi2";
+
+import { useBooking } from "@/components/booking/BookingProvider";
+
+const links = [
+    {
+        href: "#experiencias",
+        label: "Experiencias",
+    },
+    {
+        href: "#territorio",
+        label: "Territorio",
+    },
+    {
+        href: "#galeria",
+        label: "Archivo",
+    },
 ];
 
 export const Nav = () => {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
-    useEffect(() => {
-        const onScroll = () => {
-            const nextScrolled = window.scrollY > 60;
+    const { openBooking } = useBooking();
 
-            setScrolled((current) =>
-                current === nextScrolled ? current : nextScrolled
-            );
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 40);
         };
 
-        onScroll();
+        handleScroll();
 
-        window.addEventListener("scroll", onScroll, {
-            passive: true,
-        });
+        window.addEventListener(
+            "scroll",
+            handleScroll,
+            {
+                passive: true,
+            },
+        );
 
         return () => {
-            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener(
+                "scroll",
+                handleScroll,
+            );
         };
     }, []);
 
     useEffect(() => {
-        if (!menuOpen) return;
-
-        const onKeyDown = (event: KeyboardEvent) => {
-            if (event.key === "Escape") {
-                setMenuOpen(false);
-            }
-        };
-
-        window.addEventListener("keydown", onKeyDown);
+        document.body.style.overflow = menuOpen
+            ? "hidden"
+            : "";
 
         return () => {
-            window.removeEventListener("keydown", onKeyDown);
+            document.body.style.overflow = "";
         };
     }, [menuOpen]);
 
-    const closeMenu = () => setMenuOpen(false);
-
     return (
-        <motion.nav
-            aria-label="Navegación principal"
-            initial={{ y: -40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-                duration: 0.8,
-                ease: [0.19, 1, 0.22, 1],
-            }}
-            className={`fixed inset-x-0 top-0 z-50 border-b px-6 py-5 md:px-10 transition-[background-color,color,border-color] duration-500
-                ${scrolled
-                    ? "border-volcanic/5 bg-mist/85 text-volcanic backdrop-blur-xl"
-                    : "border-transparent text-mist"
-                }
-            `}
-        >
-            <div className="flex items-center justify-between">
-                <a
-                    href="#top"
-                    aria-label="Selvática — Volver al inicio"
-                    className="font-serif text-2xl italic tracking-tight md:text-3xl"
+        <>
+            <header
+                className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-500
+                    ${scrolled
+                        ? "border-volcanic/10 bg-mist/92 text-volcanic backdrop-blur-md"
+                        : "border-mist/15 bg-transparent text-mist"
+                    }
+                `}
+            >
+                <nav
+                    aria-label="Navegación principal"
+                    className="mx-auto flex h-20 max-w-[1600px] items-center justify-between px-6 md:px-10"
                 >
-                    Selvática
-                </a>
-
-                <div className="hidden items-center gap-10 text-[11px] font-medium uppercase tracking-[0.22em] md:flex">
-                    {navItems.map((item) => (
-                        <a
-                            key={item.href}
-                            href={item.href}
-                            className="transition-opacity hover:opacity-60 focus-visible:outline focus-visible:outline-offset-4"
-                        >
-                            {item.label}
-                        </a>
-                    ))}
-                </div>
-
-                <div className="flex items-center gap-5">
-                    <button
-                        type="button"
-                        aria-expanded={menuOpen}
-                        aria-controls="mobile-navigation"
-                        onClick={() => setMenuOpen((open) => !open)}
-                        className="text-[10px] font-medium uppercase tracking-[0.22em] md:hidden"
-                    >
-                        {menuOpen ? "Cerrar" : "Menú"}
-                    </button>
-
                     <a
-                        href="#reservar"
-                        className="group inline-flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.18em] md:text-[11px]"
+                        href="#top"
+                        aria-label="Selvática — Inicio"
+                        className="text-sm font-semibold uppercase tracking-[0.18em]"
                     >
-                        Reservar
-
-                        <span
-                            aria-hidden="true"
-                            className="transition-transform duration-300 group-hover:translate-x-1"
-                        >
-                            →
-                        </span>
+                        Selvática
                     </a>
-                </div>
-            </div>
+
+                    <div className="hidden items-center gap-10 md:flex">
+                        {links.map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className="text-[10px] font-medium uppercase tracking-[0.18em] transition-opacity hover:opacity-45"
+                            >
+                                {link.label}
+                            </a>
+                        ))}
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                        <button
+                            type="button"
+                            onClick={openBooking}
+                            className="hidden items-center gap-3 text-[10px] font-medium uppercase tracking-[0.18em] md:flex"
+                        >
+                            Consultar
+
+                            <HiOutlineCalendarDays
+                                aria-hidden="true"
+                                className="size-4"
+                            />
+                        </button>
+
+                        <button
+                            type="button"
+                            aria-label={
+                                menuOpen
+                                    ? "Cerrar menú"
+                                    : "Abrir menú"
+                            }
+                            aria-expanded={menuOpen}
+                            onClick={() =>
+                                setMenuOpen((value) => !value)
+                            }
+                            className="relative grid size-11 place-items-center md:hidden"
+                        >
+                            <AnimatePresence mode="wait">
+                                {menuOpen ? (
+                                    <m.span
+                                        key="close"
+                                        initial={{
+                                            opacity: 0,
+                                            rotate: -45,
+                                            scale: 0.8,
+                                        }}
+                                        animate={{
+                                            opacity: 1,
+                                            rotate: 0,
+                                            scale: 1,
+                                        }}
+                                        exit={{
+                                            opacity: 0,
+                                            rotate: 45,
+                                            scale: 0.8,
+                                        }}
+                                        transition={{
+                                            duration: 0.2,
+                                        }}
+                                    >
+                                        <HiOutlineXMark className="size-6" />
+                                    </m.span>
+                                ) : (
+                                    <m.span
+                                        key="menu"
+                                        initial={{
+                                            opacity: 0,
+                                            scale: 0.8,
+                                        }}
+                                        animate={{
+                                            opacity: 1,
+                                            scale: 1,
+                                        }}
+                                        exit={{
+                                            opacity: 0,
+                                            scale: 0.8,
+                                        }}
+                                        transition={{
+                                            duration: 0.2,
+                                        }}
+                                    >
+                                        <HiOutlineBars2 className="size-6" />
+                                    </m.span>
+                                )}
+                            </AnimatePresence>
+                        </button>
+                    </div>
+                </nav>
+            </header>
 
             <AnimatePresence>
                 {menuOpen && (
-                    <motion.div
-                        id="mobile-navigation"
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
+                    <m.div
+                        key="mobile-menu"
+                        initial={{
+                            clipPath: "inset(0 0 100% 0)",
+                        }}
+                        animate={{
+                            clipPath: "inset(0 0 0% 0)",
+                        }}
+                        exit={{
+                            clipPath: "inset(0 0 100% 0)",
+                        }}
                         transition={{
-                            duration: 0.35,
+                            duration: 0.6,
                             ease: [0.19, 1, 0.22, 1],
                         }}
-                        className="overflow-hidden md:hidden"
+                        className="
+        fixed inset-0 z-40
+        flex flex-col
+        bg-volcanic px-6
+        pb-8 pt-28
+        text-mist
+        md:hidden
+      "
                     >
-                        <div className="flex flex-col gap-5 pb-3 pt-8">
-                            {navItems.map((item, index) => (
-                                <a
-                                    key={item.href}
-                                    href={item.href}
-                                    onClick={closeMenu}
-                                    className="flex items-baseline gap-4 border-t border-current/10 pt-4"
+                        <m.nav
+                            aria-label="Navegación móvil"
+                            initial="hidden"
+                            animate="visible"
+                            exit="hidden"
+                            variants={{
+                                hidden: {},
+                                visible: {
+                                    transition: {
+                                        delayChildren: 0.18,
+                                        staggerChildren: 0.07,
+                                    },
+                                },
+                            }}
+                            className="flex flex-1 flex-col"
+                        >
+                            {links.map((link, index) => (
+                                <m.a
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={() =>
+                                        setMenuOpen(false)
+                                    }
+                                    variants={{
+                                        hidden: {
+                                            opacity: 0,
+                                            y: 18,
+                                        },
+                                        visible: {
+                                            opacity: 1,
+                                            y: 0,
+                                            transition: {
+                                                duration: 0.5,
+                                                ease: [
+                                                    0.19,
+                                                    1,
+                                                    0.22,
+                                                    1,
+                                                ],
+                                            },
+                                        },
+                                    }}
+                                    className="
+              grid grid-cols-[3rem_1fr]
+              items-baseline
+              border-t border-mist/15
+              py-6
+            "
                                 >
-                                    <span className="font-mono text-[9px] opacity-45">
-                                        0{index + 1}
+                                    <span className="font-mono text-[9px] text-mist/35">
+                                        {String(index + 1).padStart(
+                                            2,
+                                            "0",
+                                        )}
                                     </span>
 
-                                    <span className="font-serif text-3xl italic">
-                                        {item.label}
+                                    <span className="font-serif text-4xl italic">
+                                        {link.label}
                                     </span>
-                                </a>
+                                </m.a>
                             ))}
-                        </div>
-                    </motion.div>
+
+                            <m.button
+                                type="button"
+                                onClick={() => {
+                                    setMenuOpen(false);
+
+                                    setTimeout(() => {
+                                        openBooking();
+                                    }, 350);
+                                }}
+                                variants={{
+                                    hidden: {
+                                        opacity: 0,
+                                        y: 16,
+                                    },
+                                    visible: {
+                                        opacity: 1,
+                                        y: 0,
+                                        transition: {
+                                            duration: 0.5,
+                                            ease: [
+                                                0.19,
+                                                1,
+                                                0.22,
+                                                1,
+                                            ],
+                                        },
+                                    },
+                                }}
+                                className="
+            mt-auto flex
+            items-center justify-between
+            border-y border-mist/20
+            py-5
+          "
+                            >
+                                <span className="text-[11px] uppercase tracking-[0.18em]">
+                                    Consultar estancia
+                                </span>
+
+                                <HiOutlineCalendarDays
+                                    aria-hidden="true"
+                                    className="size-5"
+                                />
+                            </m.button>
+                        </m.nav>
+                    </m.div>
                 )}
             </AnimatePresence>
-        </motion.nav>
+        </>
     );
 };
