@@ -1,60 +1,115 @@
-'use client'
+import Image from "next/image";
 
-import { motion } from "motion/react"
-import { ExperienceCard } from "./ExperienceCard"
+import { Reveal } from "@/components/motion/Reveal";
+
+const experiences = [
+  {
+    number: "01",
+    title: "Agua volcánica",
+    description:
+      "Temperatura, vapor y piedra. Una pausa construida alrededor del paisaje geotérmico.",
+    image: "/assets/termales.jpg",
+    className: "md:col-span-7",
+    aspect: "aspect-16/10",
+  },
+  {
+    number: "02",
+    title: "Sobre el dosel",
+    description:
+      "Puentes y recorridos elevados cambian la escala desde la que se percibe el bosque.",
+    image: "/assets/puente.jpg",
+    className: "md:col-span-5 md:mt-32",
+    aspect: "aspect-4/5",
+  },
+  {
+    number: "03",
+    title: "Descenso",
+    description:
+      "Velocidad, agua y vegetación en una experiencia de aventura integrada al recorrido.",
+    image: "/assets/tobogan.jpg",
+    className: "md:col-span-5",
+    aspect: "aspect-4/5",
+  },
+  {
+    number: "04",
+    title: "Agua escondida",
+    description:
+      "Senderos húmedos conducen hacia pequeñas caídas de agua entre vegetación densa.",
+    image: "/assets/cascada.jpg",
+    className: "md:col-span-7 md:mt-24",
+    aspect: "aspect-16/10",
+  },
+];
 
 export const Experiences = () => {
-    return (
-        <section id="experiencias" className="py-32 md:py-44 px-6 max-w-7xl mx-auto">
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.9 }}
-                className="flex flex-col gap-3 mb-20"
-            >
-                <span className="text-clay font-medium tracking-[0.25em] uppercase text-xs">
-                    La Inmersión
-                </span>
-                <h2 className="font-serif text-5xl md:text-7xl text-volcanic text-balance max-w-[20ch] leading-[1.02]">
-                    Rituales de la <em>selva</em> y el agua
-                </h2>
-            </motion.div>
+  return (
+    <section
+      id="experiencias"
+      aria-labelledby="experiences-title"
+      className="mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-44"
+    >
+      <Reveal className="mb-20 grid gap-8 md:grid-cols-12">
+        <div className="md:col-span-3">
+          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-clay">
+            01 / Experiencias
+          </p>
+        </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
-                <ExperienceCard
-                    className="md:col-span-7"
-                    number="01"
-                    title="Aguas Termales del Volcán"
-                    desc="Minerales milenarios que emergen del núcleo de la tierra. Un descanso sagrado bajo el dosel."
-                    img='/assets/termales.jpg'
-                    ratio="aspect-[16/10]"
+        <div className="md:col-span-8">
+          <h2
+            id="experiences-title"
+            className="max-w-4xl font-serif text-5xl leading-[0.95] tracking-[-0.03em] md:text-7xl"
+          >
+            Rituales de
+            <br />
+            <em>selva y agua.</em>
+          </h2>
+        </div>
+      </Reveal>
+
+      <div className="grid grid-cols-1 items-start gap-x-10 gap-y-20 md:grid-cols-12">
+        {experiences.map((experience, index) => (
+          <Reveal
+            key={experience.number}
+            delay={(index % 2) * 0.08}
+            className={experience.className}
+          >
+            <figure>
+              <div
+                className={`relative overflow-hidden bg-stone ${experience.aspect}`}
+              >
+                <Image
+                  fill
+                  src={experience.image}
+                  alt={experience.title}
+                  sizes={
+                    experience.className.includes("col-span-7")
+                      ? "(max-width: 768px) 100vw, 58vw"
+                      : "(max-width: 768px) 100vw, 42vw"
+                  }
+                  className="object-cover transition-transform duration-1000 ease-editorial hover:scale-[1.02]"
                 />
-                <ExperienceCard
-                    className="md:col-span-5 md:mt-32"
-                    number="02"
-                    title="Dosel & Puentes Colgantes"
-                    desc="Camine entre las nubes. Perspectiva aérea de la biodiversidad más vibrante del planeta."
-                    img='/assets/puente.jpg'
-                    ratio="aspect-[4/5]"
-                />
-                <ExperienceCard
-                    className="md:col-span-5"
-                    number="03"
-                    title="El Mega Tobogán"
-                    desc="420 metros de pura adrenalina tropical que termina en una laguna turquesa."
-                    img='/assets/tobogan.jpg'
-                    ratio="aspect-[4/5]"
-                />
-                <ExperienceCard
-                    className="md:col-span-7 md:mt-24"
-                    number="04"
-                    title="Cascadas Secretas"
-                    desc="Senderos privados que descienden hasta caídas de agua escondidas en la espesura."
-                    img='/assets/cascada.jpg'
-                    ratio="aspect-[16/10]"
-                />
-            </div>
-        </section>
-    )
-}
+              </div>
+
+              <figcaption className="mt-5 grid grid-cols-[auto_1fr] gap-5">
+                <span className="font-mono text-[9px] text-volcanic/40">
+                  {experience.number}
+                </span>
+
+                <div>
+                  <h3 className="font-serif text-3xl leading-none">
+                    {experience.title}
+                  </h3>
+
+                  <p className="mt-3 max-w-sm text-sm leading-relaxed text-volcanic/60">
+                    {experience.description}
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+};

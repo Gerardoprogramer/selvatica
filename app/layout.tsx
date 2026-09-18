@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+
+import {
+  Geist,
+  Geist_Mono,
+  Instrument_Serif,
+} from "next/font/google";
+
+import { MotionProvider } from "@/components/providers/MotionProvider";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,49 +23,46 @@ const geistMono = Geist_Mono({
 const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
   subsets: ["latin"],
-  weight: "400", // Instrument Serif solo tiene 400 en Google Fonts
+  weight: "400",
   style: ["normal", "italic"],
 });
 
+const siteUrl = "https://selvatica.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://selvatica.vercel.app"),
+  metadataBase: new URL(siteUrl),
+
   title: {
-    default: "Selvática — Hotel de Aventura en Costa Rica",
-    template: "%s | Selvática",
+    default: "Selvática — Arenal, Costa Rica",
+    template: "%s · Selvática",
   },
+
   description:
-    "Refugio entre la bruma del Volcán Arenal: canopy, termales, cascadas, tobogán, gastronomía y cultura Maleku. Reserva tu aventura.",
-  keywords: [
-    "Selvática",
-    "Volcán Arenal",
-    "canopy Costa Rica",
-    "hotel aventura Costa Rica",
-    "tobogán Arenal",
-    "termales Arenal",
-  ],
-  authors: [{ name: "Selvática" }],
+    "Proyecto conceptual de hospitalidad y aventura inspirado en el paisaje volcánico y el bosque húmedo de Arenal, Costa Rica.",
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
-    title: "Selvática — Hotel de Aventura en Costa Rica",
-    description: "Donde la bruma toca el alma.",
-    url: "https://selvatica.vercel.app",
+    title: "Selvática — Arenal, Costa Rica",
+    description:
+      "Bosque, agua volcánica y aventura en una experiencia editorial inspirada en Arenal.",
+    url: "/",
     siteName: "Selvática",
-    images: [
-      {
-        url: "/assets/hero-mist.jpg", // 1200x630 recomendado, en /public
-        width: 1200,
-        height: 630,
-        alt: "Selvática — Volcán Arenal",
-      },
-    ],
     locale: "es_CR",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Selvática — Hotel de Aventura en Costa Rica",
-    description: "Donde la bruma toca el alma.",
     images: ["/assets/hero-mist.jpg"],
   },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Selvática — Arenal, Costa Rica",
+    description:
+      "Donde el bosque marca el ritmo.",
+    images: ["/assets/hero-mist.jpg"],
+  },
+
   robots: {
     index: true,
     follow: true,
@@ -67,22 +72,24 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
     },
   },
-  alternates: {
-    canonical: "https://selvatica.vercel.app",
-  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html
-      lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
+      lang="es-CR"
+      className={`
+        ${geistSans.variable}
+        ${geistMono.variable}
+        ${instrumentSerif.variable}
+      `}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body
+        id="top"
+        className="min-h-dvh bg-mist text-volcanic antialiased"
+      >
+        <MotionProvider>{children}</MotionProvider>
+      </body>
     </html>
   );
 }

@@ -1,52 +1,41 @@
-'use client';
-
-import { motion } from "motion/react"
-import { WHATSAPP_URL } from "@/lib/constants/WHATSAPP_URL"
-import Image from "next/image"
+import { Reveal } from "@/components/motion/Reveal";
+import { HiOutlineArrowRight } from "react-icons/hi2";
 
 export const CTA = () => {
     return (
-        <section className="relative py-32 md:py-44 px-6 overflow-hidden bg-jungle text-mist">
-            <div className="absolute inset-0 opacity-30">
-                <Image src='/assets/hero-mist.jpg'
-                    alt="" height={500} width={1000}
-                    className="w-full h-full object-cover"
-                    priority
-                    sizes="100vw"
-                />
+        <section
+            id="contacto"
+            className="bg-clay px-6 py-28 text-mist md:px-10 md:py-44"
+        >
+            <div className="mx-auto max-w-7xl">
+                <Reveal>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-mist/65">
+                        Preparar la estancia
+                    </p>
+
+                    <div className="mt-8 grid gap-12 md:grid-cols-12 md:items-end">
+                        <h2 className="font-serif text-[clamp(4rem,8vw,8rem)] leading-[0.82] tracking-[-0.04em] md:col-span-9">
+                            Cambiá ruido
+                            <br />
+                            por <em>bosque.</em>
+                        </h2>
+
+                        <div className="md:col-span-3">
+                            <a
+                                href="#reservar"
+                                className="group flex items-center justify-between border-y border-mist/35 py-5 text-[11px] uppercase tracking-[0.18em]"
+                            >
+                                Consultar fechas
+
+                                <HiOutlineArrowRight
+                                    aria-hidden="true"
+                                    className="size-4 transition-transform duration-300 group-hover:translate-x-1"
+                                />
+                            </a>
+                        </div>
+                    </div>
+                </Reveal>
             </div>
-            <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1 }}
-                className="relative max-w-4xl mx-auto text-center flex flex-col gap-10"
-            >
-                <span className="text-clay text-xs uppercase tracking-[0.3em]">Tu próxima aventura</span>
-                <h2 className="font-serif text-5xl md:text-7xl leading-[1.02] text-balance">
-                    Reserva tu refugio <em>entre la niebla</em>
-                </h2>
-                <p className="text-mist/70 max-w-xl mx-auto text-lg">
-                    Disponibilidad limitada a 14 cabañas. Atención personalizada por WhatsApp en menos de
-                    10 minutos.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                    <a
-                        href="#reservar"
-                        className="bg-mist text-volcanic px-8 py-4 rounded-full text-sm font-medium hover:bg-clay hover:text-mist transition-colors"
-                    >
-                        Reservar ahora
-                    </a>
-                    <a
-                        href={WHATSAPP_URL}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="px-8 py-4 rounded-full text-sm font-medium ring-1 ring-mist/40 hover:bg-mist/10 transition-colors"
-                    >
-                        Hablar por WhatsApp
-                    </a>
-                </div>
-            </motion.div>
         </section>
-    )
-}
+    );
+};
