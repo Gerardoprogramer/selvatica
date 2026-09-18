@@ -54,3 +54,7 @@
     background: transparent;
     backdrop-filter: none;
 }
+
+.gallery-dialog::backdrop {
+    background: transparent;
+}
