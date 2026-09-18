@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 
 export const Hero = () => {
     return (
-        <section aria-labelledby="hero-title" className="bg-volcanic text-mist relative min-h-dvh overflow-hidden">
+        <section id="inicio" aria-labelledby="hero-title" className="bg-volcanic text-mist relative min-h-dvh overflow-hidden">
             <Image
                 src="/assets/hero-mist.jpg"
                 alt="Bosque húmedo cubierto por neblina en Costa Rica"

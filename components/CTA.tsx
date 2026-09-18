@@ -1,34 +1,56 @@
+import Image from "next/image";
+
+import { BookingCTA } from "@/components/cta/BookingCTA";
 import { Reveal } from "@/components/motion/Reveal";
-import { HiOutlineArrowRight } from "react-icons/hi2";
 
 export const CTA = () => {
     return (
-        <section id="contacto" className="bg-clay text-mist px-6 py-28 md:px-10 md:py-44">
-            <div className="mx-auto max-w-7xl">
-                <Reveal>
-                    <p className="text-mist/65 font-mono text-[10px] tracking-[0.25em] uppercase">Preparar la estancia</p>
+        <section aria-labelledby="cta-title" className="overflow-hidden bg-mist text-volcanic">
+            <div className="mx-auto max-w-[1600px] px-6 py-28 md:px-10 md:py-44">
+                <div className="grid gap-y-16 md:grid-cols-12 md:gap-x-10">
+                    <Reveal className="md:col-span-3">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-clay">05 / Estancia</p>
+                    </Reveal>
 
-                    <div className="mt-8 grid gap-12 md:grid-cols-12 md:items-end">
-                        <h2 className="font-serif text-[clamp(4rem,8vw,8rem)] leading-[0.82] tracking-[-0.04em] md:col-span-9">
+                    <Reveal delay={0.06} className="md:col-span-3 md:col-start-10">
+                        <p className="max-w-xs text-sm leading-relaxed text-volcanic/55">
+                            Una propuesta conceptual de hospitalidad donde paisaje, movimiento y descanso forman parte de la misma experiencia.
+                        </p>
+                    </Reveal>
+
+                    <Reveal delay={0.08} className="md:col-span-8 md:mt-12">
+                        <h2 id="cta-title" className="max-w-5xl font-serif text-6xl leading-[0.84] tracking-[-0.045em] sm:text-7xl md:text-8xl lg:text-[8.5rem]">
                             Cambiá ruido
                             <br />
                             por <em>bosque.</em>
                         </h2>
 
-                        <div className="md:col-span-3">
-                            <a
-                                href="#reservar"
-                                className="group border-mist/35 flex items-center justify-between border-y py-5 text-[11px] tracking-[0.18em] uppercase"
-                            >
-                                Consultar fechas
-                                <HiOutlineArrowRight
-                                    aria-hidden="true"
-                                    className="size-4 transition-transform duration-300 group-hover:translate-x-1"
-                                />
-                            </a>
+                        <div className="mt-12 md:mt-16">
+                            <BookingCTA />
                         </div>
-                    </div>
-                </Reveal>
+                    </Reveal>
+
+                    <Reveal delay={0.14} className="md:col-span-4 md:mt-32">
+                        <figure>
+                            <div className="relative aspect-3/4 overflow-hidden bg-stone">
+                                <Image
+                                    fill
+                                    src="/assets/termales.jpg"
+                                    alt="Agua termal rodeada por bosque tropical"
+                                    sizes="(max-width: 768px) 100vw, 34vw"
+                                    className="object-cover"
+                                />
+
+                                <div aria-hidden="true" className="absolute inset-0 bg-linear-to-t from-volcanic/30 via-transparent to-transparent" />
+                            </div>
+
+                            <figcaption className="mt-4 flex items-center justify-between border-t border-volcanic/15 pt-3">
+                                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-volcanic/35">Última luz</span>
+                                <span className="text-[10px] uppercase tracking-[0.18em] text-volcanic/45">Arenal · Costa Rica</span>
+                            </figcaption>
+                        </figure>
+                    </Reveal>
+                </div>
             </div>
         </section>
     );
